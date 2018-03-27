@@ -932,12 +932,14 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const { style, className, prefixCls, showHeader, ...restProps } = this.props;
     const data = this.getCurrentPageData();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
+    const scrollX = restProps.scroll && restProps.scroll.x;
 
     const classString = classNames({
       [`${prefixCls}-${this.props.size}`]: true,
       [`${prefixCls}-bordered`]: this.props.bordered,
       [`${prefixCls}-empty`]: !data.length,
       [`${prefixCls}-without-column-header`]: !showHeader,
+      [`${prefixCls}-nowrap`]: scrollX === true,
     });
 
     let columns = this.renderRowSelection(locale);

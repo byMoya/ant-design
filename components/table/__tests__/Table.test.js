@@ -77,4 +77,17 @@ describe('Table', () => {
     wrapper.update();
     expect(wrapper.find('.ant-spin')).toHaveLength(1);
   });
+
+  it('add nowrap className when set scroll.x to true', () => {
+    const columns = [{
+      title: 'Name',
+      dataIndex: 'name',
+    }];
+    const data = [{
+      key: 1,
+      name: 'Jack',
+    }];
+    const wrapper = render(<Table columns={columns} dataSource={data} scroll={{ x: true }} />);
+    expect(wrapper.find('.ant-table').hasClass('ant-table-nowrap')).toBe(true);
+  });
 });

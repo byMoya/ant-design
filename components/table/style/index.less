@@ -164,6 +164,10 @@
   &-tbody > tr > td {
     padding: @table-padding-vertical @table-padding-horizontal;
     word-break: break-all;
+
+    .@{table-prefix-cls}-nowrap & {
+      white-space: nowrap;
+    }
   }
 
   &-thead > tr > th.@{table-prefix-cls}-selection-column-custom {
